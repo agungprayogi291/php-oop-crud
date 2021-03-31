@@ -45,5 +45,25 @@ $barang = new Barang($connection);
           ?>
   			</table>
   		</div>
+      
+      <button type="button" class="btn btn-success" data-toggle="modal" data-target="#tambah"></button>
+      <div id="tambah" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal"></button>
+              <h4 class="modal-title">Tambah Data Barang</h4>
+            </div>
+            <form action="" method="post" enctype="mulipart/form-data">
+              <div class="modal-body">
+                <div class="form-group">
+                  <label for="nm_brg" class="control=label">Nama Barang</label>
+                  <input type="text" name="nm_brg" class="form-control" id="nm_brg" required> 
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
   	</div>
   </div>
