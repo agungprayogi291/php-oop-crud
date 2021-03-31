@@ -1,6 +1,9 @@
 <?php
 class Barang{
-	private $mysqli;
+
+
+	 private $mysqli;
+	// private $nama,$harga,$stock,$gambar,$db;
 	public function __construct($conn){
 		$this->mysqli = $conn;
 	}
@@ -12,6 +15,15 @@ class Barang{
 		}
 		$query = $db->query($sql) or die ($db->error);
 		return $query;
+	}
+	public function tambah($nm_brg,$hrg_brg,$stc_brg,$gbr_brg){
+		// $this->nama = $nm_brg;
+		// $this->harga = $hrg_brg;
+		// $this->stock = $stc_brg;
+		// $this->gambar = $gbr_brg;
+		$db =$this->mysqli->conn;
+		$db->query("INSERT INTO tb_barang VALUES('','$nm_brg','$hrg_brg','$stc_brg','$gbr_brg')") or die($db->error);
+
 	}
 }
 
