@@ -135,7 +135,7 @@ $barang = new Barang($connection);
                      <img src="" width ="100px" id="picture">
                   </div>
                  
-                  <input type="file" class="form-control" name="gbr_brg" id="gbr_brg" accept="image/*" required>
+                  <input type="file" class="form-control" name="gbr_brg" id="gbr_brg" accept="image/*" >
                 </div>
               </div>
               <div class="modal-footer">
@@ -162,6 +162,23 @@ $barang = new Barang($connection);
             $("#modal-edit  #hrg_brg").val(hargabrg);
             $("#modal-edit  #stc_brg").val(stockbrg);
             $("#modal-edit  #picture").attr("src","assets/img/barang/"+ gambarbrg);
+          })
+
+          $(document).ready(function(e){
+            $("#form").on("submit",(function(e){
+              e.preventDefault();
+              $.ajax({
+                url:'models/proses_edit_barang.php',
+                type :'POST',
+                data : new FormData(this),
+                contentType :false,
+                cache :false,
+                processData:false,
+                success:function(msg){
+                  $('.table').html(msg);
+                }
+              })
+            }));
           })
        </script>
   	</div>
